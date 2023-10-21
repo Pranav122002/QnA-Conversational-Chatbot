@@ -1,4 +1,4 @@
-torch
 transformers
 SpeechRecognition
 PyAudio
+sentencepiece
