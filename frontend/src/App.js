@@ -3,47 +3,76 @@ import axios from "axios";
 
 function App() {
   const [question, setQuestion] = useState("");
-  const [answer, setAnswer] = useState("");
-  const [qaHistory, setQaHistory] = useState([]);
+  const [qaHistory, setQAHistory] = useState([]);
 
-  const handleQuestionSubmit = async () => {
+  const getAnswer = async () => {
     try {
       const response = await axios.post("http://localhost:5000/answer", {
         question: question,
       });
 
-      const newQa = { question, answer: response.data.answer };
-      setQaHistory([...qaHistory, newQa]);
+      const newQA = { question, answer: response.data.answer };
+      setQAHistory([...qaHistory, newQA]);
 
       setQuestion("");
-      setAnswer(response.data.answer);
     } catch (error) {
       console.error(error);
+      return "Error";
+    }
+  };
+
+  const translate = async (answer) => {
+    try {
+      const response = await axios.post("http://localhost:5000/translate", {
+        answer: answer,
+      });
+
+      return response.data.hindi_answer;
+    } catch (error) {
+      console.error(error);
+      return "Translation Error";
     }
   };
 
   return (
     <div>
-      <input
-        type="text"
-        placeholder="Ask a question"
-        value={question}
-        onChange={(e) => setQuestion(e.target.value)}
-      />
-      <button onClick={handleQuestionSubmit}>Submit</button>
-      {/* <p>Answer: {answer}</p> */}
       <div>
-        <h2>Question-Answer History:</h2>
         <ul>
           {qaHistory.map((qa, index) => (
             <li key={index}>
               <strong>Q:</strong> {qa.question}
               <br />
               <strong>A:</strong> {qa.answer}
+              <br />
+              <button
+                onClick={async () => {
+                  const translatedAnswer = await translate(qa.answer);
+                  setQAHistory((prevHistory) => {
+                    const updatedHistory = [...prevHistory];
+                    updatedHistory[index].hindi_answer = translatedAnswer;
+                    return updatedHistory;
+                  });
+                }}
+              >
+                Translate
+              </button>
+              {qa.hindi_answer && (
+                <p>
+                  <strong>tA:</strong> {qa.hindi_answer}
+                </p>
+              )}
             </li>
           ))}
         </ul>
       </div>
+
+      <input
+        type="text"
+        placeholder="Ask a question..."
+        value={question}
+        onChange={(e) => setQuestion(e.target.value)}
+      />
+      <button onClick={getAnswer}>Submit</button>
     </div>
   );
 }

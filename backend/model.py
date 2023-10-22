@@ -1,6 +1,5 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-import speech_recognition as sr
 from transformers import BertTokenizer, BertForQuestionAnswering, MarianMTModel, MarianTokenizer
 
 translator = MarianMTModel.from_pretrained("Helsinki-NLP/opus-mt-en-hi")
@@ -18,29 +17,28 @@ def answer_question(question, context):
     answer = tokenizer.convert_tokens_to_string(tokenizer.convert_ids_to_tokens(inputs["input_ids"][0][start_positions:end_positions+1]))
     return answer
 
-
 def translate_to_hindi(text):
     inputs = translator_tokenizer.encode(text, return_tensors="pt")
     translated = translator.generate(inputs, max_length=128, num_beams=4, early_stopping=True)
     translation = translator_tokenizer.decode(translated[0], skip_special_tokens=True)
     return translation
 
-
-
-
-
 app = Flask(__name__)
-CORS(app) 
-CORS(app, origins="http://localhost:3000")
+CORS(app)
 
 @app.route('/answer', methods=['POST'])
-
 def answer():
     data = request.get_json()
     question = data['question']
     answer = answer_question(question, context)
     return jsonify({"answer": answer})
 
+@app.route('/translate', methods=['POST'])
+def translate():
+    data = request.get_json()
+    text = data['answer']
+    hindi_answer = translate_to_hindi(text)
+    return jsonify({"hindi_answer": hindi_answer})
 
 if __name__ == '__main__':
     app.run()
