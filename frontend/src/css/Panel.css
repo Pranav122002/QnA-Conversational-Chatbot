@@ -1,24 +1,27 @@
-/* Chatbot Panel */
+
 .chatbot-panel {
   position: fixed;
   bottom: 20px;
   right: 20px;
   z-index: 1000;
   transition: width 0.3s, height 0.3s;
-  width: 50px; /* Set the initial width of the panel */
-  height: 50px; /* Set the initial height of the panel */
+  width: 50px; 
+  height: 50px; 
 }
 
 .chatbot-panel.open {
-  width: 300px; /* Set the expanded width of the panel when it's open */
-  height: 400px; /* Set the expanded height of the panel when it's open */
+  width: 300px; 
+  height: 90vh; 
 }
 
-/* Floating Icon */
+
 .floating-icon {
+  background-image: url('../../public/bot.png');
+  background-size: contain; 
+  background-repeat: no-repeat;
   width: 50px;
   height: 50px;
-  background-color: #007bff;
+  /* background-color: #007bff; */
   color: #fff;
   display: flex;
   justify-content: center;
@@ -30,10 +33,10 @@
 }
 
 .floating-icon.open {
-  display: none; /* Hide the blue chat icon when the panel is open */
+  display: none; 
 }
 
-/* Cross Mark Icon */
+
 .cross-icon {
   width: 50px;
   height: 50px;
@@ -42,16 +45,16 @@
   align-items: center;
   font-size: 24px;
   cursor: pointer;
-  background-color: #ff0000; /* Set the background color of the cross mark icon */
+  background-color: #ff0000; 
 }
 
-/* Chatbot Container */
 .chatbot-container {
   display: none;
   width: 300px;
-  height: 400px;
+  height: 100%;
   background-color: #fff;
   border: 1px solid #ccc;
+  border-radius: 0.8rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
