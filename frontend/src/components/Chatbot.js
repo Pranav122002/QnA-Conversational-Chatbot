@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "../css/Chatbot.css";
 
 export default function Chatbot() {
   const [question, setQuestion] = useState("");
@@ -67,14 +68,17 @@ export default function Chatbot() {
           </div>
         </div>
 
-        <input
-          type="text"
-          placeholder="Ask a question..."
-          value={question}
-          onChange={(e) => setQuestion(e.target.value)}
-        />
+        <div className="inputbar">
+          <input
+          className="bar"
+            type="text"
+            placeholder="Ask a question..."
+            value={question}
+            onChange={(e) => setQuestion(e.target.value)}
+          />
 
-        <button onClick={getAnswer}>Submit</button>
+          <div className="submitbtn" onClick={getAnswer}></div>
+        </div>
       </div>
     </>
   );
