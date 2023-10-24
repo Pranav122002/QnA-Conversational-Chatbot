@@ -46,3 +46,36 @@
   border-radius: 0.8rem;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
+
+.q {
+  width: 100%;
+  display: flex;
+
+  justify-content: end;
+  float: right;
+  margin-bottom: 1rem;
+}
+
+.a {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  float: left;
+  margin-bottom: 1rem;
+}
+
+.t {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  float: left;
+  margin-bottom: 1rem;
+}
+
+.qat {
+  margin: 1rem;
+  height: 8rem;
+
+  display: grid;
+  grid-template-rows: auto;
+}

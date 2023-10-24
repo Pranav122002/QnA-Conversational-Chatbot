@@ -41,10 +41,10 @@ export default function Chatbot() {
         <div>
           <div>
             {qaHistory.map((qa, index) => (
-              <div key={index}>
-                <div>{qa.question}</div>
-                <div>{qa.answer}</div>
+              <div className="qat" key={index}>
+                <div className="q">{qa.question}</div>
 
+                <div className="a">{qa.answer}</div>
                 <div
                   className="translate"
                   onClick={async () => {
@@ -56,7 +56,8 @@ export default function Chatbot() {
                     });
                   }}
                 ></div>
-                {qa.hindi_answer && <p>{qa.hindi_answer}</p>}
+
+                {qa.hindi_answer && <div className="t">{qa.hindi_answer}</div>}
               </div>
             ))}
           </div>
