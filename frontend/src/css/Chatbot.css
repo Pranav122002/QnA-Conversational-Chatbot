@@ -2,34 +2,47 @@
   position: absolute;
   bottom: 0;
   width: 100%;
+  display: grid;
+  grid-template-columns: 80% 20%;
 }
-  
-  .bar {
-    float: left;
-    width: 82%;
-    height: 2rem;
-   margin-top: 0.2rem;
-   margin-left: 0.2rem;
-   margin-bottom: 0.2rem;
+
+.bar {
+  float: left;
+  width: 95%;
+  height: 2rem;
+  margin: 0.3rem;
+
   border-radius: 0.8rem;
   padding-left: 0.5rem;
   border: none;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  }
-  
-  .submitbtn {
-    float: right;
-    width: 2rem;
-    height: 2rem;
-    background-color: lightgreen;
-    margin-top: 0.2rem;
-    margin-right: 0.2rem;
-    margin-bottom: 0.2rem;
+}
+
+.bar:focus {
+  box-shadow: rgba(80, 80, 89, 0.2) 0px 2px 29px 0px;
+  outline: none;
+}
+
+.submitbtn {
+  float: right;
+  width: 90%;
+  height: 2rem;
+  background-color: lightgreen;
+  margin: 0.3rem;
+
   border-radius: 0.8rem;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
-    /* display: flex;
+  /* display: flex;
     justify-content: center;
     align-items: center; */
-  }
-  
+}
+
+.translate {
+  width: 2rem;
+  height: 2rem;
+  background-color: yellow;
+
+  border-radius: 0.8rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}

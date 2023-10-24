@@ -41,12 +41,12 @@ export default function Chatbot() {
         <div>
           <div>
             {qaHistory.map((qa, index) => (
-              <li key={index}>
-                <strong>Q:</strong> {qa.question}
-                <br />
-                <strong>A:</strong> {qa.answer}
-                <br />
-                <button
+              <div key={index}>
+                <div>{qa.question}</div>
+                <div>{qa.answer}</div>
+
+                <div
+                  className="translate"
                   onClick={async () => {
                     const translatedAnswer = await translate(qa.answer);
                     setQAHistory((prevHistory) => {
@@ -55,22 +55,16 @@ export default function Chatbot() {
                       return updatedHistory;
                     });
                   }}
-                >
-                  Translate
-                </button>
-                {qa.hindi_answer && (
-                  <p>
-                    <strong>tA:</strong> {qa.hindi_answer}
-                  </p>
-                )}
-              </li>
+                ></div>
+                {qa.hindi_answer && <p>{qa.hindi_answer}</p>}
+              </div>
             ))}
           </div>
         </div>
 
         <div className="inputbar">
           <input
-          className="bar"
+            className="bar"
             type="text"
             placeholder="Ask a question..."
             value={question}

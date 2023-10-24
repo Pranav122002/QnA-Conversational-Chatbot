@@ -9,8 +9,9 @@
 }
 
 .chatbot-panel.open {
-  width: 300px;
-  height: 90vh;
+  width: 25vw;
+  height: 95vh;
+  min-width: 350px;
 }
 
 .floating-icon {
@@ -67,4 +68,15 @@
 
 .chatbot-panel.open .chatbot-container {
   display: block;
+}
+
+.cross {
+  height: 2rem;
+}
+
+@media (max-width: 768px) {
+  .chatbot-panel.open {
+    width: 90%;
+    height: 95vh;
+  }
 }
