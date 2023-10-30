@@ -39,7 +39,7 @@ export default function Chatbot() {
     <>
       <div>
         <div>
-          <div>
+          <div className="qatcontainer">
             {qaHistory.map((qa, index) => (
               <div className="qat" key={index}>
                 <div className="q">{qa.question}</div>
