@@ -33,15 +33,15 @@
   border-radius: 0.8rem;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
-  /* display: flex;
+  display: flex;
     justify-content: center;
-    align-items: center; */
+    align-items: center;
 }
 
 .translate {
   width: 2rem;
   height: 2rem;
-  background-color: yellow;
+  /* background-color: yellow; */
 
   border-radius: 0.8rem;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -78,4 +78,43 @@
 
   display: grid;
   grid-template-rows: auto;
+}
+
+
+ /* new */
+ .loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px; /* Adjust the height as needed */
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: #333; 
+  border-radius: 50%;
+  margin: 0 5px; /* Adjust the spacing between dots as needed */
+  animation: loading 1.5s infinite;
+}
+
+.dot1 {
+  animation-delay: 0s;
+}
+
+.dot2 {
+  animation-delay: 0.5s;
+}
+
+.dot3 {
+  animation-delay: 1s;
+}
+
+@keyframes loading {
+  0%, 100% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+  }
 }

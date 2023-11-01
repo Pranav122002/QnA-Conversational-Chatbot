@@ -5,9 +5,23 @@ import "../css/Chatbot.css";
 export default function Chatbot() {
   const [question, setQuestion] = useState("");
   const [qaHistory, setQAHistory] = useState([]);
+  const [loading, setLoading] = useState(false);
 
+  const Spinner = () => {
+    return (
+      // <div className="loader-container">
+      //   <div className="loader"></div>
+      // </div>
+      <div className="loader">
+        <div className="dot dot1"></div>
+        <div className="dot dot2"></div>
+        <div className="dot dot3"></div>
+      </div>
+    );
+  };
   const getAnswer = async () => {
     try {
+      setLoading(true);
       const response = await axios.post("http://localhost:5000/answer", {
         question: question,
       });
@@ -15,13 +29,15 @@ export default function Chatbot() {
       const newQA = { question, answer: response.data.answer };
       setQAHistory([...qaHistory, newQA]);
 
+      // qaHistoryRef.current.scrollBottom = qaHistoryRef.current.scrollHeight;
       setQuestion("");
     } catch (error) {
       console.error(error);
       return "Error";
+    } finally {
+      setLoading(false); // Set loading back to false once the request is complete.
     }
   };
-
   const translate = async (answer) => {
     try {
       const response = await axios.post("http://localhost:5000/translate", {
@@ -55,7 +71,9 @@ export default function Chatbot() {
                       return updatedHistory;
                     });
                   }}
-                ></div>
+                >
+                  <i class="fa-solid fa-globe"></i>
+                </div>
 
                 {qa.hindi_answer && <div className="t">{qa.hindi_answer}</div>}
               </div>
@@ -72,7 +90,15 @@ export default function Chatbot() {
             onChange={(e) => setQuestion(e.target.value)}
           />
 
-          <div className="submitbtn" onClick={getAnswer}></div>
+          <div className="submitbtn" onClick={getAnswer}>
+            {loading ? (
+              <Spinner />
+            ) : (
+              <>
+                <i class="fa-solid fa-arrow-right fa-xl"></i>{" "}
+              </>
+            )}
+          </div>
         </div>
       </div>
     </>

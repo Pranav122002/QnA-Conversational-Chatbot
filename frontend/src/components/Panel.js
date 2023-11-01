@@ -16,7 +16,7 @@ const Panel = () => {
           className={`floating-icon ${isOpen ? "open" : ""}`}
           onClick={togglePanel}
         >
-          <i className="fas fa-comments"></i> {/* Chat icon */}
+          {/* <i className="fas fa-comments"></i> Chat icon */}
         </div>
 
         <div className="chatbot-container">
