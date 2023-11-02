@@ -21,26 +21,28 @@ questions = [
     "What is address ?",
     "What is Fr. CRIT ?",
 ]
+n = 3
+while n>0:
+    n = n-1
+    for q in questions:
+        inputbar = driver.find_element(By.CLASS_NAME, "bar")
+        submitbtn = driver.find_element(By.CLASS_NAME, "submitbtn")
 
-for q in questions:
-    inputbar = driver.find_element(By.CLASS_NAME, "bar")
-    submitbtn = driver.find_element(By.CLASS_NAME, "submitbtn")
+        WebDriverWait(driver, 10).until(EC.text_to_be_present_in_element_value((By.CLASS_NAME, "bar"), ""))
 
-    WebDriverWait(driver, 10).until(EC.text_to_be_present_in_element_value((By.CLASS_NAME, "bar"), ""))
+        # inputbar.clear()  
+        inputbar.send_keys(q)
+        submitbtn.click()
 
-    # inputbar.clear()  
-    inputbar.send_keys(q)
-    submitbtn.click()
+        initial_qat_count = len(driver.find_elements(By.CSS_SELECTOR, ".qatcontainer .qat"))
 
-    initial_qat_count = len(driver.find_elements(By.CSS_SELECTOR, ".qatcontainer .qat"))
-
-    while True:
-        try:
-            WebDriverWait(driver, 10).until(
-                lambda driver: len(driver.find_elements(By.CSS_SELECTOR, ".qatcontainer .qat")) > initial_qat_count
-            )
-            break 
-        except TimeoutException:
-            print("New question element is not added within the specified time.")
+        while True:
+            try:
+                WebDriverWait(driver, 10).until(
+                    lambda driver: len(driver.find_elements(By.CSS_SELECTOR, ".qatcontainer .qat")) > initial_qat_count
+                )
+                break 
+            except TimeoutException:
+                print("New question element is not added within the specified time.")
 
 # driver.quit()

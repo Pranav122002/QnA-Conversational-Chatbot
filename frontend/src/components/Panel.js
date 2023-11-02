@@ -15,15 +15,13 @@ const Panel = () => {
         <div
           className={`floating-icon ${isOpen ? "open" : ""}`}
           onClick={togglePanel}
-        >
-          <i className="fas fa-comments"></i> {/* Chat icon */}
-        </div>
+        ></div>
 
         <div className="chatbot-container">
           <div className="cross">
             <i className="fas fa-times cross-icon" onClick={togglePanel}></i>{" "}
-            {/* Cross mark icon */}
           </div>
+
           <div>
             <Chatbot />
           </div>

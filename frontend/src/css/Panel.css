@@ -20,7 +20,6 @@
   background-repeat: no-repeat;
   width: 50px;
   height: 50px;
-  /* background-color: #007bff; */
   color: #fff;
   display: flex;
   justify-content: center;
@@ -42,13 +41,10 @@
   font-size: 24px;
   cursor: pointer;
   background-color: #ff0000;
-
   margin: 0.2rem;
-
   float: right;
   width: 2rem;
   height: 2rem;
-
   border-radius: 0.8rem;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
@@ -57,14 +53,9 @@
   display: none;
   width: 100%;
   height: 100%;
-
   border-radius: 0.9rem;
-
-  background: rgba(46, 78, 226, 0.04);
-
+  background-color: #fff;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10.2px);
-  -webkit-backdrop-filter: blur(10.2px);
 }
 
 .chatbot-panel.open .chatbot-container {

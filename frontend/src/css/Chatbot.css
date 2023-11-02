@@ -11,7 +11,6 @@
   width: 95%;
   height: 2rem;
   margin: 0.3rem;
-
   border-radius: 0.8rem;
   padding-left: 0.5rem;
   border: none;
@@ -29,20 +28,16 @@
   height: 2rem;
   background-color: lightgreen;
   margin: 0.3rem;
-
   border-radius: 0.8rem;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-
-  /* display: flex;
-    justify-content: center;
-    align-items: center; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .translate {
   width: 2rem;
   height: 2rem;
-  background-color: yellow;
-
   border-radius: 0.8rem;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
@@ -50,7 +45,6 @@
 .q {
   width: 100%;
   display: flex;
-
   justify-content: end;
   float: right;
   margin-bottom: 1rem;
@@ -73,9 +67,65 @@
 }
 
 .qat {
-  margin: 1rem;
-  height: 8rem;
-
   display: grid;
   grid-template-rows: auto;
+  margin: 1rem 1rem;
+  height: auto;
+}
+
+.container {
+  overflow-y: auto;
+  width: 100%;
+  max-height: 84vh;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: #333;
+  border-radius: 50%;
+  margin: 0 5px;
+  animation: loading 1.5s infinite;
+}
+
+.dot1 {
+  animation-delay: 0s;
+}
+
+.dot2 {
+  animation-delay: 0.5s;
+}
+
+.dot3 {
+  animation-delay: 1s;
+}
+
+.container::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background-color: #d8d8d8;
+  border-radius: 0.8rem;
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+  background-color: #1f1f1f7e;
+}
+
+@keyframes loading {
+  0%,
+  100% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+  }
 }
