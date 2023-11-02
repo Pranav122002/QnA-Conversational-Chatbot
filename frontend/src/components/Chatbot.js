@@ -16,7 +16,6 @@ export default function Chatbot() {
       </div>
     );
   };
-
   const getAnswer = async () => {
     try {
       setLoading(true);
@@ -34,7 +33,6 @@ export default function Chatbot() {
       setLoading(false);
     }
   };
-
   const translate = async (answer) => {
     try {
       const response = await axios.post("http://localhost:5000/translate", {
