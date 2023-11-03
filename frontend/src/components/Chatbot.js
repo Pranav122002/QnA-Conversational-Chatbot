@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import "../css/Chatbot.css";
 
@@ -6,6 +6,11 @@ export default function Chatbot() {
   const [question, setQuestion] = useState("");
   const [qaHistory, setQAHistory] = useState([]);
   const [loading, setLoading] = useState(false);
+  const chatContainerRef = useRef(null);
+
+  useEffect(() => {
+    chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+  }, [qaHistory]);
 
   const Spinner = () => {
     return (
@@ -48,7 +53,7 @@ export default function Chatbot() {
   return (
     <>
       <div>
-        <div className="container">
+        <div className="container" ref={chatContainerRef}>
           <div className="qatcontainer">
             {qaHistory.map((qa, index) => (
               <div className="qat" key={index}>
