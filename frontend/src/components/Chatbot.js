@@ -6,6 +6,7 @@ export default function Chatbot() {
   const [question, setQuestion] = useState("");
   const [qaHistory, setQAHistory] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [voiceSpeaking, setVoiceSpeaking] = useState(false);
   const chatContainerRef = useRef(null);
 
   useEffect(() => {
@@ -21,6 +22,22 @@ export default function Chatbot() {
       </div>
     );
   };
+
+  const speakAnswer = (answer) => {
+    const synth = window.speechSynthesis;
+    const utterance = new SpeechSynthesisUtterance(answer);
+
+    synth.speak(utterance);
+
+    utterance.onstart = () => {
+      setVoiceSpeaking(true);
+    };
+
+    utterance.onend = () => {
+      setVoiceSpeaking(false);
+    };
+  };
+
   const getAnswer = async () => {
     try {
       setLoading(true);
@@ -72,6 +89,13 @@ export default function Chatbot() {
                   }}
                 >
                   <i class="fa-solid fa-globe"></i>
+                </div>
+
+                <div
+                  className="voiceanswer"
+                  onClick={() => speakAnswer(qa.answer)}
+                >
+                  <i className="fa-solid fa-volume-high"></i>
                 </div>
 
                 {qa.hindi_answer && <div className="t">{qa.hindi_answer}</div>}
