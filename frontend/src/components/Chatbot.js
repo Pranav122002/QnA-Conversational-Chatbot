@@ -9,6 +9,36 @@ export default function Chatbot() {
   const [voiceSpeaking, setVoiceSpeaking] = useState(false);
   const chatContainerRef = useRef(null);
 
+  const [listening, setListening] = useState(false);
+  const [recognition, setRecognition] = useState(null);
+
+  const startListening = () => {
+    const recognition = new (window.SpeechRecognition ||
+      window.webkitSpeechRecognition)();
+    recognition.lang = "en-US";
+    recognition.onstart = () => {
+      setListening(true);
+    };
+    recognition.onresult = (event) => {
+      const text = event.results[0][0].transcript;
+
+      setQuestion(text);
+    };
+    recognition.onend = () => {
+      setListening(false);
+    };
+
+    recognition.start();
+    setRecognition(recognition);
+  };
+
+  const stopListening = () => {
+    if (recognition) {
+      recognition.stop();
+      setRecognition(null);
+    }
+  };
+
   useEffect(() => {
     chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
   }, [qaHistory]);
@@ -55,6 +85,7 @@ export default function Chatbot() {
       setLoading(false);
     }
   };
+
   const translate = async (answer) => {
     try {
       const response = await axios.post("http://localhost:5000/translate", {
@@ -112,6 +143,13 @@ export default function Chatbot() {
             value={question}
             onChange={(e) => setQuestion(e.target.value)}
           />
+
+          <div
+            className="microphone"
+            onClick={listening ? stopListening : startListening}
+          >
+            <i class="fa-solid fa-microphone"></i>
+          </div>
 
           <div className="submitbtn" onClick={getAnswer}>
             {loading ? (
