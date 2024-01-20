@@ -2,3 +2,4 @@ transformers
 SpeechRecognition
 PyAudio
 sentencepiece
+flaskcors
