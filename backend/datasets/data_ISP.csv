@@ -1,0 +1,13 @@
+City,Download (Mbps),Upload (Mbps),Fastest ISP,Speed Score
+"Adelaide, South Australia",21.93,10.74,TPG,31.09
+"Brisbane, Queensland",35.08,23.56,Optus,49.19
+"Canberra, Australian Capital Territory",32.47,14.12,¡¡Net,35.21
+"Darwin, Northern Territory",29.62,13.89,¡¡Net,34.34
+"Geelong, Victoria",67.05,22.15,¡¡Net,94.26
+"Gold Coast, Queensland",32.17,9.07,Optus,91.37
+"Hobart, Tasmania",27.25,11.74,Telstra,27.80
+"Melbourne, Victoria",31.63,20.58,Spirit,44.29
+"Newcastle, New South Wales",33.97,14.74,MyRepublic,57.36
+"Perth, Western Australia",17.90,7.59,TPG,28.44
+"Sydney, New South Wales",30.03,16.27,MyRepublic,49.18
+"Wollongong, New South Wales",33.72,19.78,MyRepublic,94.31
