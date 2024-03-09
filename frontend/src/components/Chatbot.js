@@ -67,6 +67,7 @@ export default function Chatbot() {
       setVoiceSpeaking(false);
     };
   };
+
   const like = async (question, answer) => {
     try {
       const response = await axios.post("http://localhost:5000/like", {
@@ -78,7 +79,7 @@ export default function Chatbot() {
       console.error("Error sending like feedback:", error);
     }
   };
-  
+
   const dislike = async (question, answer) => {
     try {
       const response = await axios.post("http://localhost:5000/dislike", {
@@ -90,8 +91,7 @@ export default function Chatbot() {
       console.error("Error sending dislike feedback:", error);
     }
   };
-  
-  
+
   const getAnswer = async () => {
     try {
       setLoading(true);
@@ -115,11 +115,31 @@ export default function Chatbot() {
       const response = await axios.post("http://localhost:5000/translate", {
         answer: answer,
       });
-      return response.data.hindi_answer;
+      return {
+        hindi_answer: response.data.hindi_answer,
+        marathi_answer: response.data.marathi_answer,
+        tamil_answer: response.data.tamil_answer,
+      };
     } catch (error) {
       console.error(error);
-      return "Translation Error";
+      return {
+        hindi_answer: "Translation Error",
+        marathi_answer: "Translation Error",
+        tamil_answer: "Translation Error",
+      };
     }
+  };
+
+  const handleTranslateClick = async (index) => {
+    const qa = qaHistory[index];
+    const translatedAnswers = await translate(qa.answer);
+    setQAHistory((prevHistory) => {
+      const updatedHistory = [...prevHistory];
+      updatedHistory[index].hindi_answer = translatedAnswers.hindi_answer;
+      updatedHistory[index].marathi_answer = translatedAnswers.marathi_answer;
+      updatedHistory[index].tamil_answer = translatedAnswers.tamil_answer;
+      return updatedHistory;
+    });
   };
 
   return (
@@ -134,16 +154,9 @@ export default function Chatbot() {
 
                 <div
                   className="translate"
-                  onClick={async () => {
-                    const translatedAnswer = await translate(qa.answer);
-                    setQAHistory((prevHistory) => {
-                      const updatedHistory = [...prevHistory];
-                      updatedHistory[index].hindi_answer = translatedAnswer;
-                      return updatedHistory;
-                    });
-                  }}
+                  onClick={() => handleTranslateClick(index)}
                 >
-                  <i class="fa-solid fa-globe"></i>
+                  <i className="fa-solid fa-globe"></i>
                 </div>
 
                 <div
@@ -168,6 +181,10 @@ export default function Chatbot() {
                 </div>
 
                 {qa.hindi_answer && <div className="t">{qa.hindi_answer}</div>}
+                {qa.marathi_answer && (
+                  <div className="t">{qa.marathi_answer}</div>
+                )}
+                {qa.tamil_answer && <div className="t">{qa.tamil_answer}</div>}
               </div>
             ))}
           </div>
@@ -186,7 +203,7 @@ export default function Chatbot() {
             className="microphone"
             onClick={listening ? stopListening : startListening}
           >
-            <i class="fa-solid fa-microphone"></i>
+            <i className="fa-solid fa-microphone"></i>
           </div>
 
           <div className="submitbtn" onClick={getAnswer}>
@@ -194,7 +211,7 @@ export default function Chatbot() {
               <Spinner />
             ) : (
               <>
-                <i class="fa-solid fa-arrow-right fa-xl"></i>{" "}
+                <i className="fa-solid fa-arrow-right fa-xl"></i>{" "}
               </>
             )}
           </div>

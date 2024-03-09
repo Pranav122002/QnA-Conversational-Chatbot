@@ -11,18 +11,17 @@ from nltk.tokenize import word_tokenize
 import nltk
 from pymongo import MongoClient
 from flask import request
+from googletrans import Translator
+
+translator = Translator()
 
 client = MongoClient("mongodb+srv://test:test@cluster0.5llacmy.mongodb.net/")
 db = client["QnA"]
 qnaCollection = db["QnA"]
-feedbackCollection = db["QnA"]
 print("MongoDB Connection Successfull...")
 
 nltk.download("stopwords")
 stop_words = set(stopwords.words("english"))
-
-translator = MarianMTModel.from_pretrained("Helsinki-NLP/opus-mt-en-hi")
-translator_tokenizer = MarianTokenizer.from_pretrained("Helsinki-NLP/opus-mt-en-hi")
 
 tokenizer = BertTokenizer.from_pretrained(
     "bert-large-uncased-whole-word-masking-finetuned-squad"
@@ -78,10 +77,8 @@ def identify_context(question, chunks):
             ]
         )
 
-        # Calculate the overlap between question keywords and context keywords
         overlap = len(question_keywords.intersection(context_keywords))
 
-        # Update the best context if the overlap is higher
         if overlap > highest_overlap:
             best_context = context
             highest_overlap = overlap
@@ -90,12 +87,18 @@ def identify_context(question, chunks):
 
 
 def translate_to_hindi(text):
-    inputs = translator_tokenizer.encode(text, return_tensors="pt")
-    translated = translator.generate(
-        inputs, max_length=128, num_beams=4, early_stopping=True
-    )
-    translation = translator_tokenizer.decode(translated[0], skip_special_tokens=True)
-    return translation
+    translated = translator.translate(text, dest="hi")
+    return translated.text
+
+
+def translate_to_marathi(text):
+    translated = translator.translate(text, dest="mr")
+    return translated.text
+
+
+def translate_to_tamil(text):
+    translated = translator.translate(text, dest="ta")
+    return translated.text
 
 
 app = Flask(__name__)
@@ -123,7 +126,15 @@ def translate_endpoint():
     data = request.get_json()
     text = data["answer"]
     hindi_answer = translate_to_hindi(text)
-    return jsonify({"hindi_answer": hindi_answer})
+    marathi_answer = translate_to_marathi(text)
+    tamil_answer = translate_to_tamil(text)
+    return jsonify(
+        {
+            "hindi_answer": hindi_answer,
+            "marathi_answer": marathi_answer,
+            "tamil_answer": tamil_answer,
+        }
+    )
 
 
 @app.route("/like", methods=["POST"])

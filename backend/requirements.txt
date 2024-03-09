@@ -4,4 +4,4 @@ PyAudio
 sentencepiece
 flaskcors
 pymongo
-
+googletrans
