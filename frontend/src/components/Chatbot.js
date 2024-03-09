@@ -67,7 +67,31 @@ export default function Chatbot() {
       setVoiceSpeaking(false);
     };
   };
-
+  const like = async (question, answer) => {
+    try {
+      const response = await axios.post("http://localhost:5000/like", {
+        question: question,
+        answer: answer,
+      });
+      console.log("Like response:", response.data);
+    } catch (error) {
+      console.error("Error sending like feedback:", error);
+    }
+  };
+  
+  const dislike = async (question, answer) => {
+    try {
+      const response = await axios.post("http://localhost:5000/dislike", {
+        question: question,
+        answer: answer,
+      });
+      console.log("Dislike response:", response.data);
+    } catch (error) {
+      console.error("Error sending dislike feedback:", error);
+    }
+  };
+  
+  
   const getAnswer = async () => {
     try {
       setLoading(true);
@@ -127,6 +151,20 @@ export default function Chatbot() {
                   onClick={() => speakAnswer(qa.answer)}
                 >
                   <i className="fa-solid fa-volume-high"></i>
+                </div>
+
+                <div
+                  className="like"
+                  onClick={() => like(qa.question, qa.answer)}
+                >
+                  <i className="fa-solid fa-thumbs-up"></i>
+                </div>
+
+                <div
+                  className="dislike"
+                  onClick={() => dislike(qa.question, qa.answer)}
+                >
+                  <i className="fa-solid fa-thumbs-down"></i>
                 </div>
 
                 {qa.hindi_answer && <div className="t">{qa.hindi_answer}</div>}

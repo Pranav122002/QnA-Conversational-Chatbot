@@ -3,3 +3,5 @@ SpeechRecognition
 PyAudio
 sentencepiece
 flaskcors
+pymongo
+
