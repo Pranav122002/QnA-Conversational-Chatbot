@@ -30,7 +30,7 @@ model = BertForQuestionAnswering.from_pretrained(
     "bert-large-uncased-whole-word-masking-finetuned-squad"
 )
 
-with open("./datasets/datasetnew.txt", "r") as f:
+with open("./datasets/dataset.txt", "r") as f:
     full_text = f.read()
 
 # Split the dataset into chunks based on newlines
