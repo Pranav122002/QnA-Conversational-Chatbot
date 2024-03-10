@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import "../css/Chatbot.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Chatbot() {
   const [question, setQuestion] = useState("");
@@ -149,44 +150,53 @@ export default function Chatbot() {
           <div className="qatcontainer">
             {qaHistory.map((qa, index) => (
               <div className="qat" key={index}>
-                <div className="q">{qa.question}</div>
-                <div className="a">{qa.answer}</div>
+                <div className="txtcont">
+                  <div className="q">{qa.question}</div>
+                </div>
+                <div className="txtcont">
+                  <div className="a">{qa.answer}</div>
+                </div>
 
                 <div className="icons">
                   <div
                     className="translate"
                     onClick={() => handleTranslateClick(index)}
                   >
-                    <i className="fa-solid fa-globe"></i>
+                    <i className="fa-solid fa-globe fa-beat"></i>
                   </div>
 
                   <div
                     className="voiceanswer"
                     onClick={() => speakAnswer(qa.answer)}
                   >
-                    <i className="fa-solid fa-volume-high"></i>
+                    <i className="fa-solid fa-volume-high fa-beat"></i>
                   </div>
 
                   <div
                     className="like"
                     onClick={() => like(qa.question, qa.answer)}
                   >
-                    <i className="fa-solid fa-thumbs-up"></i>
+                    <i className="fa-solid fa-thumbs-up fa-beat"></i>
                   </div>
 
                   <div
                     className="dislike"
                     onClick={() => dislike(qa.question, qa.answer)}
                   >
-                    <i className="fa-solid fa-thumbs-down"></i>
+                    <i className="fa-solid fa-thumbs-down fa-beat"></i>
                   </div>
                 </div>
-
-                {qa.hindi_answer && <div className="t">{qa.hindi_answer}</div>}
-                {qa.marathi_answer && (
-                  <div className="t">{qa.marathi_answer}</div>
-                )}
-                {qa.tamil_answer && <div className="t">{qa.tamil_answer}</div>}
+                <div className="txtcont">
+                  {qa.hindi_answer && (
+                    <div className="t">{qa.hindi_answer}</div>
+                  )}
+                  {qa.marathi_answer && (
+                    <div className="t">{qa.marathi_answer}</div>
+                  )}
+                  {qa.tamil_answer && (
+                    <div className="t">{qa.tamil_answer}</div>
+                  )}
+                </div>
               </div>
             ))}
           </div>
@@ -205,7 +215,7 @@ export default function Chatbot() {
             className="microphone"
             onClick={listening ? stopListening : startListening}
           >
-            <i className="fa-solid fa-microphone"></i>
+            <i className="fa-solid fa-microphone fa-beat"></i>
           </div>
 
           <div className="submitbtn" onClick={getAnswer}>
@@ -213,7 +223,7 @@ export default function Chatbot() {
               <Spinner />
             ) : (
               <>
-                <i className="fa-solid fa-arrow-right fa-xl"></i>{" "}
+                <i class="fa-solid fa-paper-plane fa-beat"></i>{" "}
               </>
             )}
           </div>

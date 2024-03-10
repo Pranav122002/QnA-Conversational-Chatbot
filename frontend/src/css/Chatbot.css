@@ -48,6 +48,30 @@
   align-items: center;
 }
 
+.icons {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.icons > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  height: 2rem;
+  border: 0.15rem solid #e0e3eb;
+  border-radius: 0.8rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.icons > div:active {
+  background-color: #fd0e35; /* Change to your desired background color */
+}
+
+.icons i {
+  cursor: pointer;
+}
+
 .translate {
   width: 2rem;
   height: 2rem;
@@ -62,14 +86,12 @@
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
-
 .like {
   width: 2rem;
   height: 2rem;
   border-radius: 0.8rem;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
-
 
 .dislike {
   width: 2rem;
@@ -78,33 +100,37 @@
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
-.icons{
-  display: flex;
-}
-
-
 .q {
-  width: 100%;
+  width: 60%;
   display: flex;
   justify-content: end;
   float: right;
   margin-bottom: 1rem;
+  border: 0.15rem solid #e0e3eb;
+  border-radius: 0.8rem;
+  padding: 0.5rem;
 }
 
 .a {
-  width: 100%;
+  width: 60%;
   display: flex;
   justify-content: start;
   float: left;
-  margin-bottom: 1rem;
+  margin-bottom: 0.2rem;
+  border: 0.15rem solid #e0e3eb;
+  border-radius: 0.8rem;
+  padding: 0.5rem;
 }
 
 .t {
-  width: 100%;
+  width: 60%;
   display: flex;
   justify-content: start;
   float: left;
-  margin-bottom: 1rem;
+  margin-bottom: 0.3rem;
+  border: 0.15rem solid #e0e3eb;
+  border-radius: 0.8rem;
+  padding: 0.5rem;
 }
 
 .qat {

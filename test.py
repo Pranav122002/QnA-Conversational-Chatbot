@@ -17,9 +17,10 @@ icon = driver.find_element(By.CSS_SELECTOR, ".floating-icon")
 icon.click()
 
 questions = [
-    "Who is HOD of college ?",
+    "What is admission enquiry number ?",
     "What is address ?",
     "What is Fr. CRIT ?",
+    "How many students are placed in TCS in year 2020?",
 ]
 n = 3
 while n>0:
