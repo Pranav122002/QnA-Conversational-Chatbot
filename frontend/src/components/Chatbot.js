@@ -152,32 +152,34 @@ export default function Chatbot() {
                 <div className="q">{qa.question}</div>
                 <div className="a">{qa.answer}</div>
 
-                <div
-                  className="translate"
-                  onClick={() => handleTranslateClick(index)}
-                >
-                  <i className="fa-solid fa-globe"></i>
-                </div>
+                <div className="icons">
+                  <div
+                    className="translate"
+                    onClick={() => handleTranslateClick(index)}
+                  >
+                    <i className="fa-solid fa-globe"></i>
+                  </div>
 
-                <div
-                  className="voiceanswer"
-                  onClick={() => speakAnswer(qa.answer)}
-                >
-                  <i className="fa-solid fa-volume-high"></i>
-                </div>
+                  <div
+                    className="voiceanswer"
+                    onClick={() => speakAnswer(qa.answer)}
+                  >
+                    <i className="fa-solid fa-volume-high"></i>
+                  </div>
 
-                <div
-                  className="like"
-                  onClick={() => like(qa.question, qa.answer)}
-                >
-                  <i className="fa-solid fa-thumbs-up"></i>
-                </div>
+                  <div
+                    className="like"
+                    onClick={() => like(qa.question, qa.answer)}
+                  >
+                    <i className="fa-solid fa-thumbs-up"></i>
+                  </div>
 
-                <div
-                  className="dislike"
-                  onClick={() => dislike(qa.question, qa.answer)}
-                >
-                  <i className="fa-solid fa-thumbs-down"></i>
+                  <div
+                    className="dislike"
+                    onClick={() => dislike(qa.question, qa.answer)}
+                  >
+                    <i className="fa-solid fa-thumbs-down"></i>
+                  </div>
                 </div>
 
                 {qa.hindi_answer && <div className="t">{qa.hindi_answer}</div>}

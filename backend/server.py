@@ -1,17 +1,17 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from transformers import (
-    BertTokenizer,
-    BertForQuestionAnswering,
-    MarianMTModel,
-    MarianTokenizer,
-)
+from transformers import BertTokenizer, BertForQuestionAnswering
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 import nltk
 from pymongo import MongoClient
 from flask import request
 from googletrans import Translator
+import pickle
+from transformers import pipeline
+import pandas as pd
+import warnings
+warnings.filterwarnings("ignore") 
 
 translator = Translator()
 
@@ -30,14 +30,35 @@ model = BertForQuestionAnswering.from_pretrained(
     "bert-large-uncased-whole-word-masking-finetuned-squad"
 )
 
-with open("./datasets/dataset.txt", "r") as f:
+tqa = pipeline(
+    task="table-question-answering", model="google/tapas-large-finetuned-sqa"
+)
+
+with open("./models/classifier_model.pkl", "rb") as f:
+    classifier, vectorizer = pickle.load(f)
+
+with open("./datasets/dataset.txt", "r", encoding="utf-8") as f:
     full_text = f.read()
 
 # Split the dataset into chunks based on newlines
 chunks = [chunk.strip() for chunk in full_text.split("\n\n")]
 
+table = pd.read_csv(r"./datasets/Placement1.csv")
+table = table.astype(str)
 
-def answer_question(question, chunks):
+
+def classify_question(question):
+    question_vec = vectorizer.transform([question])
+    question_type = classifier.predict(question_vec)[0]
+    return question_type
+
+
+def answer_table_question(question):
+    answer = tqa(table=table, query=question)
+    return answer["answer"]
+
+
+def answer_para_question(question, chunks):
     best_context = identify_context(question, chunks)
     if best_context is not None:
         inputs = tokenizer(question, best_context, return_tensors="pt")
@@ -72,7 +93,7 @@ def identify_context(question, chunks):
         context_keywords = set(
             [
                 word.lower()
-                for word in word_tokenize(context)
+                for word in word_tokenize(context_lower)
                 if word.isalnum() and word.lower() not in stop_words
             ]
         )
@@ -107,9 +128,15 @@ CORS(app)
 
 @app.route("/answer", methods=["POST"])
 def answer_endpoint():
+
     data = request.get_json()
     question = data["question"]
-    answer = answer_question(question, chunks)
+    question_type = classify_question(question)
+
+    if question_type == "Table":
+        answer = answer_table_question(question)
+    elif question_type == "Para":
+        answer = answer_para_question(question, chunks)
 
     existing_question = qnaCollection.find_one({"question": question})
 
@@ -123,11 +150,14 @@ def answer_endpoint():
 
 @app.route("/translate", methods=["POST"])
 def translate_endpoint():
+
     data = request.get_json()
     text = data["answer"]
+
     hindi_answer = translate_to_hindi(text)
     marathi_answer = translate_to_marathi(text)
     tamil_answer = translate_to_tamil(text)
+
     return jsonify(
         {
             "hindi_answer": hindi_answer,
@@ -139,6 +169,7 @@ def translate_endpoint():
 
 @app.route("/like", methods=["POST"])
 def like_endpoint():
+
     data = request.get_json()
     question = data.get("question")
     answer = data.get("answer")
@@ -156,6 +187,7 @@ def like_endpoint():
 
 @app.route("/dislike", methods=["POST"])
 def dislike_endpoint():
+
     data = request.get_json()
     question = data.get("question")
     answer = data.get("answer")
