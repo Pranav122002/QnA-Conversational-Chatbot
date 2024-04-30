@@ -1,6 +1,7 @@
 Father Conceicao Rodrigues Institute of Technology (FCRIT) is a private engineering college affiliated to the University of Mumbai located in Vashi, Navi Mumbai. 
 The institute offers the B.E degree courses in Computer Engineering, Electrical Engineering, Mechanical Engineering, Electronics and Telecommunication Engineering and Information Technology. 
 FCRIT is a private, un-aided, minority, non-autonomous institute affiliated to the University of Mumbai. 
+
 It offers a four-year baccalaureate course culminating in the B.E. degree conferred by the university.
 The institute has been graded A by the Directorate of Technical Education, Government of Maharashtra State.
 It is recognised by the AICTE and has received accreditation from the National Board of Accreditation(NBA), New Delhi. 
@@ -8,9 +9,11 @@ It is recognised by the AICTE and has received accreditation from the National B
 FCRIT was established in 1994 as a part of the Agnel Technical Education Complex at Vashi, which itself was established in 1984.
 The institute is named after late Rev. Fr. Conceicao Rodrigues, who died in odour of sanctity. 
 The admission process is highly competitive and is undertaken as per the directives of the Directorate of Technical Education(DTE), Maharashtra State. 
+
 For admission to the FCRIT, prospective candidates from the native state of Maharashtra need to pass their Higher Secondary (School) Certificate / Standard XII examination of the Maharashtra State Board of Secondary and Higher Secondary Education or its equivalent from CBSE or CISCE. 
 All prospective candidates need to have had the subjects of English, Physics, Chemistry and Mathematics in their curriculum and should have obtained a minimum of 50% marks in the Science subjects (Physics, Chemistry) and Mathematics added together. 
 Prospective candidates from outside the state of Maharashtra can also apply provided they satisfy the required eligibility criteria. 
+
 Prospective students need to take the Maharashtra Engineering Common Entrance Test or MAH-EN-CET. 
 The MAH-EN-CET consists of only one common exam that is divided into 3 sections - physics, chemistry and mathematics with 50 multiple choice questions in each. 
 The total score in these sections taken together decides the merit list for the exam in a given year.
@@ -18,9 +21,11 @@ The total score in these sections taken together decides the merit list for the 
 The syllabus for preparing for the MAH-EN-CET is the same as the Physics, Chemistry and Mathematics syllabus prescribed by the Maharashtra State Board of Secondary and Higher Secondary Education for the Higher Secondary (School) Certificate / Standard XII examination conducted in the current academic year.
 This merit list is used as a differentiating factor for admissions to FCRIT. 
 The All India Engineering Entrance Examination or AIEEE held by Central Board of Secondary Education (CBSE) under guidance of the Ministry of Human Resource Development (India) is also accepted as an alternative. 
+
 The placement program starts in the month of June or July every year and students who have completed three years of the four-year course are eligible to register.
 The program spans more than a year and runs through the final year of the course for a batch of students. 
 The institute claims to have a nearly 100% conversion ratio of eligible students to company offers.
+
 The placement activities are looked after by faculty placement officers and student coordinators.
 The central placement cell is located in the administrative block, south of the reception. 
 A list of recent recruiters is also available on the institute's website.
@@ -29,9 +34,11 @@ The admission enquiry number is 9769764884.
 The Agnel Ashram Fathers – a group of Catholic priests and brothers, along with some well educated, dedicated, zealous and patriotic co-workers have, during the last 45 years, built up a large well-knit family of committed individuals. This unique family, which is spread over different parts of the country, has been instrumental in propounding a powerful MOVEMENT in the realm of education.
 To evolve and flourish as a progressive centre for modern technical education, stirring creativity in every student leading to self-sustainable professionals, through holistic development; nurtured by strength and legitimate pride of Indian values and ethics.
 To foster relationship with other institute of repute, alumni and industry.To provide holistic environment for overall personal development.
+
 Fr. CRIT. has, within a short span of time, established itself as a leading engineering college in Mumbai University. Though its reputation rests mainly on the high quality, value-based technical education that it imparts, it has to its credit a verdant, well-maintained Campus and extensive facilities. Its location in the vicinity of the holy places of various religious denominations underscores its secular credentials and its philosophy of "Vasudhaiva Kuttumbakam". The college prides on being one of few that has accreditation for all five branches.
 The Department of Computer Engineering at Fr. C. Rodrigues Institute of Technology, Vashi, was established in 1994. The department continuously strives to comply the goal of providing innovative and quality education with the emerging technologies to achieve academic excellence and provides platform for the students to achieve their career goals. The department has proud privilege of having qualified, experienced and dedicated faculty. It has modern computing amenities equipped with latest tools and technologies. The faculty members are working with a tremendous team-spirit to create best technocrats for industry and to accept the challenge in the global world. The department has strong collaboration with research organizations and leading industries. Our graduates have distinguished themselves in higher studies at the top Universities in India and abroad. They also occupy positions of eminence in the computer industry. To provide value-added inputs and exposure to industry, our Alumni remain in constant touch with the department by providing their contribution in conducting various workshops with hand-on experience and expert lectures. The National Board of Accreditation (NBA), New Delhi, has accredited the department twice in the year 2006 and year 2012.
 To contribute significantly towards industry and research oriented technical education leading to self-sustainable professionals and responsible citizens.
+
 To provide quality and application oriented education to meet the industry requirements.To prepare technically competent, ethical, socially committed professionals with good leadership qualities. To facilitate an opportunity to interact with prominent institutes, alumni and industries to understand the emerging trends in computer technology.
 Agnel Technical Education Complex, Sector 9-A, Vashi, Navi Mumbai, Maharashtra, India, PIN - 400703
 Fr. CRIT. has been granted “Christian Religious Minority” status by Government of Maharashtra and 51 % of total seats for the Undergraduate and Masters Program, in each branch, are reserved for candidates belonging to the ‘Christian Religion’.
@@ -47,13 +54,15 @@ FACES (intra-collegiate fest) is conducted in the odd semester with sports and c
 Eta max ( inter collegiate techno fest) is celebrated in the even semester with the highlight on technical events and workshops.
 Fr. CRIT offers students to be part of different clubs like Agnel Robotics Club, Agnel sports club, AI and Deep Learning club, Music club,Drama club,College Magazine , Coders' Club
 Fr. CRIT infrastructure consists of a library, gymnasium, boys and girls hostel, swimming pool, medical centre, meditation centre, basketball court, football turf, badminton gurukul, canteen
-"Ragging is cognizable offense and is banned in any form inside and outside the campus". In order to ensure that the ragging does not take place in the institute in any form, the institute has constituted an Anti-Ragging Committee which would conduct raids and detect the cases, if any and suggest preventive measures. Any student becoming a victim of ragging should immediately inform to the members of Anti-Ragging Committee.
 
+"Ragging is cognizable offense and is banned in any form inside and outside the campus". In order to ensure that the ragging does not take place in the institute in any form, the institute has constituted an Anti-Ragging Committee which would conduct raids and detect the cases, if any and suggest preventive measures. Any student becoming a victim of ragging should immediately inform to the members of Anti-Ragging Committee.
 Dr. Milind Shah is the Dean Academics. Dr. Bindu S. Nair is Dean Student Affairs. Dr. Sushil Thale is Dean R & D. 
 Dr. Lata Ragha is Dean PG Studies. Dr. Nilaj Deshmukh is Dean Faculties.
+
 Dr. Kiruthika M is HOD of Computer Department. Dr.Jyoti More is Assistant HOD of computer department.
 Dr. Aqleem Siddiqui is HOD of Mechanical department.Dr.Dhananjay Panchagade is Assistant HOD of Mechanical department.
 Dr. Megha Kolhekar is Assistant HOD of EXTC department.Dr.Pranali Choudhari is Assistant HOD of EXTC department.
+
 Dr. Bindu S. is HOD of electrical department. Dr. Bindu R. is Assistant HOD of electrical department.
 Dr. Shubhangi Vaikole is HOD of IT department. Dr.Vaishali B. is Assistant HOD of IT department.
 
@@ -61,6 +70,7 @@ Dr.Christu Nesam is Assistant HOD of Humanities department.
 Dr.Pritha B. is Assistant HOD of Humanities department.
 Dr.Chaya Pawar is Associate Dean academics.
 Dr.Krishnan S. is Associate Dean R & D and industry Liasoning.
+
 Dr.Pranali Choudhari is Associate Dean Admin and Faculty.
 Dr.Mini Rajeev is Associate Dean Students and alumni. 
 Prof. Deepak Devasagayam and Prof. Mritunjay Ojha are the Assistant Placement Officers.

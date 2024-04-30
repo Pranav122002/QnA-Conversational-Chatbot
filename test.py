@@ -22,7 +22,9 @@ questions = [
     "What is Fr. CRIT ?",
     "How many students are placed in TCS in year 2020?",
 ]
+
 n = 3
+
 while n>0:
     n = n-1
     for q in questions:
